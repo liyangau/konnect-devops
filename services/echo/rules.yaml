@@ -1,0 +1,33 @@
+rules:
+  # echo-naming-check-expression:
+  #   description: "Ensure route name must start with echo"
+  #   given: $.services[*].routes[*].expression
+  #   severity: error
+  #   then:
+  #     function: pattern
+  #     functionOptions:
+  #       match: 'http\.path(?:\^=|==|=\^)"\/(echo[^"]+)"'
+  # echo-naming-check:
+  #   description: "Ensure route name must start with echo"
+  #   given: $.services[*].routes[*].name
+  #   severity: error
+  #   then:
+  #     function: pattern
+  #     functionOptions:
+  #       match: "^echo"
+  echo-path-check-service:
+    description: "Ensure route path must start with /echo"
+    given: $.services[*].routes[*].paths
+    severity: error
+    then:
+      function: pattern
+      functionOptions:
+        match: "^/echo"
+  # echo-path-check-root:
+  #   description: "Ensure route path must start with /echo for routes defined on root level"
+  #   given: $.routes[*].paths
+  #   severity: error
+  #   then:
+  #     function: pattern
+  #     functionOptions:
+  #       match: "^/echo"
